@@ -160,6 +160,30 @@ a {
     <div class="tips" style="display: none">复制成功，请打开支付宝首页搜索</div>
     <script src="static/js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="https://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+    <script type="text/javascript">
+        mqq.ui.setTitleButtons({
+             left: {
+                      title: "返回"
+                         },
+              right: {
+                      hidden: true
+                    }
+                });
+
+function onBridgeReady(){
+WeixinJSBridge.call('hideOptionMenu');
+}
+if (typeof WeixinJSBridge == "undefined"){
+    if( document.addEventListener ){
+    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+}else if (document.attachEvent){
+    document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+    document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+}
+}else{
+    onBridgeReady();
+}
+    </script>
     <script src="static/js/clipboard.js"></script>
     <script>
 
